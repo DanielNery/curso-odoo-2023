@@ -42,3 +42,10 @@ class MeuPrimeiroModulo(models.Model):
         ('ativo', 'Ativo'), 
         ('inativo', 'Inativo'),
     ], string="Tipo")
+    
+    sale_order_id = fields.Many2one('sale.order', string="Pedido de Vendas")
+    # ondelete
+    # cascade
+    # set null
+    # restrict
+    # no action
