@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record model="ir.ui.view" id="meu_primeiro_modulo_tree_view">
+        <field name="name">Meu Primeiro Modulo Tree View</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="meu_primeiro_campo_inteiro"/>
+                <field name="primeiro_campo_boolean"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="meu_primeiro_modelo_action" model="ir.actions.act_window">
+        <field name="name"> Nossa Primeira Ação</field>
+        <field name="res_model">meu.primeiro.modelo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem
+        id="meu_primeiro_modelo_menuitem_root"
+        name="Meu Primeiro Modulo"
+        action="meu_primeiro_modelo_action"
+        sequence="10"
+    />
+
+</odoo>
