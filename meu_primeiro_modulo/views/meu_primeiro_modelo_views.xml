@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+    <record model="ir.ui.view" id="meu_primeiro_modulo_form_view">
+        <field name="name">Meu Primeiro Modulo Form View</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="meu_primeiro_campo_inteiro" />
+                        <field name="primeiro_campo_boolean"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+ 
     <record model="ir.ui.view" id="meu_primeiro_modulo_tree_view">
         <field name="name">Meu Primeiro Modulo Tree View</field>
         <field name="model">meu.primeiro.modelo</field>
