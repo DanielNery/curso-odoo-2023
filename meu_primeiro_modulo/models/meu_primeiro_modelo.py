@@ -49,3 +49,14 @@ class MeuPrimeiroModulo(models.Model):
     # set null
     # restrict
     # no action
+    
+    primeiro_modelo_ids = fields.One2many('meu.primeiro.modelo.linha', 'primeiro_modelo_id', string="Primeiro Modelo Linhas")
+
+
+class MeuPrimeiroModuloLinha(models.Model):
+    _name = 'meu.primeiro.modelo.linha'
+    
+    nome = fields.Char(string="Nome")
+    
+    primeiro_modelo_id = fields.Many2one('meu.primeiro.modelo', string="Primeiro Modelo")
+    
