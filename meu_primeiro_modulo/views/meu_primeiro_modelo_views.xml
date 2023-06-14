@@ -6,11 +6,36 @@
         <field name="model">meu.primeiro.modelo</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="tipo" widget="statusbar" readonly="1" />
+                </header>
                 <sheet>
                     <group>
-                        <field name="meu_primeiro_campo_inteiro" />
-                        <field name="primeiro_campo_boolean"/>
+                        <group>
+                            <field name="meu_primeiro_campo_inteiro" />
+                            <field name="primeiro_campo_boolean"/>
+                            <field name="sale_order_id" />
+                        </group>
+                        <group>
+                            <field name="campo_float" />
+                            <field name="name" />
+                            <field name="descricao" />
+                        </group>
                     </group>
+                    <notebook>
+                        <page string="Linhas">
+                            <field name="primeiro_modelo_ids">
+                                <tree editable="bottom">
+                                    <field name="nome" />
+                                </tree>
+                                <!-- <form>
+                                    <group name="nome" string="Linhas">
+                                        <field name="nome" />
+                                    </group>
+                                </form> -->
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -21,6 +46,8 @@
         <field name="model">meu.primeiro.modelo</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="name" />
+                <field name="sale_order_id" />
                 <field name="meu_primeiro_campo_inteiro"/>
                 <field name="primeiro_campo_boolean"/>
             </tree>

@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-meu_primeiro_modulo.access_meu_primeiro_modelo,access_meu_primeiro_modelo,meu_primeiro_modulo.model_meu_primeiro_modelo,base.group_user,1,1,1,0
+meu_primeiro_modulo.access_meu_primeiro_modelo,access_meu_primeiro_modelo,meu_primeiro_modulo.model_meu_primeiro_modelo,base.group_user,1,1,1,1
+meu_primeiro_modulo.access_meu_primeiro_modelo_linha,access_meu_primeiro_modelo_linha,meu_primeiro_modulo.model_meu_primeiro_modelo_linha,base.group_user,1,1,1,1
