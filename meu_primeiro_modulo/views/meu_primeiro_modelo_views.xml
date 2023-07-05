@@ -5,7 +5,7 @@
         <field name="name">Meu Primeiro Modulo Kanban View</field>
         <field name="model">meu.primeiro.modelo</field>
         <field name="arch" type="xml">
-            <kanban>
+            <kanban default_group_by="tipo" on_create="quick_create">
                 <field name="campo_float" />
                 <field name="name" />
                 <field name="descricao" />
