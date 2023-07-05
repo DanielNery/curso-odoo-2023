@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
+
+    <record id="meu_primeiro_modulo_search_view" model="ir.ui.view">
+        <field name="name">Meu Primeiro Modulo Search View</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="arch" type="xml">
+            <search string="Meu Primeiro Modulo">
+                <field name="name"/>
+                <field name="descricao"/>
+
+                <filter 
+                    name="filter_has_madeira" 
+                    string="Tem Madeira" 
+                    domain="[('primeiro_campo_boolean', '=', True)]" 
+                />
+
+                <separator/>
+
+                <filter name="filter_create_date" date="create_date" default_period="this_year"/>
+
+                <filter 
+                    name="has_not_madeira" 
+                    string="Não tem Madeira" 
+                    domain="[('primeiro_campo_boolean', '=', False)]" 
+                />
+
+                <group expand="1" string="Agrupar Por">
+                    
+                    <filter 
+                        name="group_has_madeira" 
+                        string="Tem Madeira" 
+                        context="{'group_by':'primeiro_campo_boolean','primeiro_campo_boolean':True}"
+                    />
+
+                </group>
+
+
+            </search>
+        </field>
+    </record>
+
     <record id="meu_primeiro_modulo_kanban_view" model="ir.ui.view">
         <field name="name">Meu Primeiro Modulo Kanban View</field>
         <field name="model">meu.primeiro.modelo</field>
@@ -89,7 +129,9 @@
         <field name="res_model">meu.primeiro.modelo</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="domain">[]</field>
-        <field name="context">{}</field>
+        <field name="context">{
+            'search_default_filter_has_madeira': 1
+        }</field>
     </record>
 
     <menuitem
