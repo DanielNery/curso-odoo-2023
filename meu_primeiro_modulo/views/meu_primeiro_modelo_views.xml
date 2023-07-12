@@ -31,7 +31,7 @@
                     <filter 
                         name="group_has_madeira" 
                         string="Tem Madeira" 
-                        context="{'group_by':'primeiro_campo_boolean','primeiro_campo_boolean':True}"
+                        context="{'group_by':'primeiro_campo_boolean'}"
                     />
 
                 </group>
@@ -129,9 +129,7 @@
         <field name="res_model">meu.primeiro.modelo</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="domain">[]</field>
-        <field name="context">{
-            'search_default_filter_has_madeira': 1
-        }</field>
+        <field name="context"> {'search_default_filter_has_madeira': 1} </field>
     </record>
 
     <menuitem
