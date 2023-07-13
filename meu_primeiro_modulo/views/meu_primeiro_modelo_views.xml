@@ -2,6 +2,51 @@
 <odoo>
 
 
+    <record id="meu_primeiro_modulo_graph_view" model="ir.ui.view">
+        <field name="name">Meu Primeiro Gráfico</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="arch" type="xml">
+            <graph string="Análise de Vendas">
+                <field name="campo_float" string="Receita"/>
+                <field name="tipo"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="meu_primeiro_modulo_pivot_view" model="ir.ui.view">
+        <field name="name">Meu Primeiro Pivô</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="arch" type="xml">
+            <pivot string="Pivô" disable_linking="false">
+                <field name="create_date" />
+                <field name="campo_float" />
+                <field name="name" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="meu_primeiro_modulo_calendar_view" model="ir.ui.view">
+        <field name="name">Meu Primeiro Calendário</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="arch" type="xml">
+            <!-- form_view_id="meu_primeiro_"  -->
+            <calendar 
+                string="Calendário" 
+                date_start="start_date" 
+                date_stop="end_date" 
+                color="name" 
+                event_open_popup="true" 
+                quick_add="true" 
+                all_day="allday"
+                mode="month"
+                event_limit="5"
+            >
+                <field name="name" />
+                <field name="descricao" />
+            </calendar>
+        </field>
+    </record>
+
     <record id="meu_primeiro_modulo_search_view" model="ir.ui.view">
         <field name="name">Meu Primeiro Modulo Search View</field>
         <field name="model">meu.primeiro.modelo</field>
@@ -85,11 +130,14 @@
                             <field name="meu_primeiro_campo_inteiro" />
                             <field name="primeiro_campo_boolean"/>
                             <field name="sale_order_id" />
+                            <field name="allday" />
                         </group>
                         <group>
                             <field name="campo_float" />
                             <field name="name" />
                             <field name="descricao" />
+                            <field name="start_date" />
+                            <field name="end_date" />
                         </group>
                     </group>
                     <notebook>
@@ -120,6 +168,8 @@
                 <field name="sale_order_id" />
                 <field name="meu_primeiro_campo_inteiro"/>
                 <field name="primeiro_campo_boolean"/>
+                <field name="start_date" />
+                <field name="end_date" />
             </tree>
         </field>
     </record>
@@ -127,7 +177,7 @@
     <record id="meu_primeiro_modelo_action" model="ir.actions.act_window">
         <field name="name"> Nossa Primeira Ação</field>
         <field name="res_model">meu.primeiro.modelo</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,form,kanban,calendar,pivot,graph</field>
         <field name="domain">[]</field>
         <field name="context"> {'search_default_filter_has_madeira': 1} </field>
     </record>

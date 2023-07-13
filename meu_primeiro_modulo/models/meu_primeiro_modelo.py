@@ -52,6 +52,9 @@ class MeuPrimeiroModulo(models.Model):
     
     primeiro_modelo_ids = fields.One2many('meu.primeiro.modelo.linha', 'primeiro_modelo_id', string="Primeiro Modelo Linhas")
 
+    start_date = fields.Datetime(string="Data Inicial", required=True)
+    end_date = fields.Datetime(string="Data Final", required=True)
+    allday = fields.Boolean('Dia Inteiro', default=False)
 
 class MeuPrimeiroModuloLinha(models.Model):
     _name = 'meu.primeiro.modelo.linha'
