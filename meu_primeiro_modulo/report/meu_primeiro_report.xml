@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="meu_primeiro_action_report" model="ir.actions.report">
+        <field name="name">Meu primeiro relatório</field>
+        <field name="model">meu.primeiro.modelo</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">meu_primeiro_modulo.report_meu_primeiro_modelo</field>
+        <field name="report_file">meu_primeiro_modulo.report_meu_primeiro_modelo</field>
+        <field name="print_report_name">'Meu Primeiro Relatório'</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+        <field name="binding_model_id" ref="model_meu_primeiro_modelo"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

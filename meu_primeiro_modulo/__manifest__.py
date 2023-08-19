@@ -8,6 +8,8 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "report/meu_primeiro_report_template.xml",
+        "report/meu_primeiro_report.xml",
         "views/meu_primeiro_modelo_views.xml",
     ]
 }
