@@ -4,7 +4,8 @@
     "summary": "meu primeiro módulo que faz nada",
     "author": "Fulano de tal",
     "depends": [
-        "sale"
+        "sale",
+        "account"
     ],
     "data": [
         "security/ir.model.access.csv",

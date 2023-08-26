@@ -52,6 +52,14 @@ class MeuPrimeiroModulo(models.Model):
     
     primeiro_modelo_ids = fields.One2many('meu.primeiro.modelo.linha', 'primeiro_modelo_id', string="Primeiro Modelo Linhas")
 
+    tax_ids = fields.Many2many(
+        comodel_name ="account.tax",
+        relation="account_tax_meu_primeiro_modelo_rel",
+        column1="meu_primeiro_modelo_id",
+        column2="account_tax_id",
+        string="Impostos"
+    )
+
     start_date = fields.Datetime(string="Data Inicial", required=True)
     end_date = fields.Datetime(string="Data Final", required=True)
     allday = fields.Boolean('Dia Inteiro', default=False)

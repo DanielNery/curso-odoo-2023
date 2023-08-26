@@ -131,6 +131,7 @@
                             <field name="primeiro_campo_boolean"/>
                             <field name="sale_order_id" />
                             <field name="allday" />
+                            <field name="tax_ids" widget="many2many_tags" />
                         </group>
                         <group>
                             <field name="campo_float" />
