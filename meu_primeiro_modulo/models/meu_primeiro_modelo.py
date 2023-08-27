@@ -1,3 +1,8 @@
+import base64
+
+from io import BytesIO
+from xlsxwriter import Workbook
+
 from odoo import models, fields
 
 class MeuPrimeiroModulo(models.Model):
@@ -63,6 +68,56 @@ class MeuPrimeiroModulo(models.Model):
     start_date = fields.Datetime(string="Data Inicial", required=True)
     end_date = fields.Datetime(string="Data Final", required=True)
     allday = fields.Boolean('Dia Inteiro', default=False)
+
+    def generate_excel_report(self):
+        
+        # Criar um arquivo xlsx em memória
+        output = BytesIO()
+        workbook = Workbook(output)
+        worksheet = workbook.add_worksheet()
+        
+        # Personalizar o seu relatório
+        # colocar cor, registros, editar tamanhos
+        worksheet.set_column("A:A", 20)
+        
+        # Add a bold format to use to highlight cells.
+        bold = workbook.add_format({"bold": True})
+
+        # Write some simple text.
+        worksheet.write("A1", "Hello")
+
+        # Text with formatting.
+        worksheet.write("A2", "World", bold)
+
+        # Write some numbers, with row/column notation.
+        worksheet.write(2, 0, 123)
+        worksheet.write(3, 0, 123.456)
+        
+        workbook.close()
+        
+        # Obter os dados do arquivo em formato base64
+        xlsx_data = output.getvalue()
+        output.close()
+        
+        # Criar um anexo no Odoo com o arquivo xlsx
+        attachment = self.env["ir.attachment"].create({
+            "name": "report.xlsx",
+            "type": 'binary',
+            "datas": base64.b64encode(xlsx_data),
+            "res_model": self._name,
+            "res_id": self.id
+        })
+        
+        # Retornar a ção para abrir o anexo recém criado
+        return {
+            "type": "ir.actions.act_url",
+            "url": f"/web/content/{attachment.id}?download=true",
+            "target": 'self'
+        }
+        
+        
+        
+        
 
 class MeuPrimeiroModuloLinha(models.Model):
     _name = 'meu.primeiro.modelo.linha'

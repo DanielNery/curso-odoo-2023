@@ -125,6 +125,9 @@
                     <field name="tipo" widget="statusbar" readonly="1" />
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="generate_excel_report" type="object" string="Relatório" class="oe_stat_button" icon="fa-file"/>
+                    </div>
                     <group>
                         <group>
                             <field name="meu_primeiro_campo_inteiro" />
