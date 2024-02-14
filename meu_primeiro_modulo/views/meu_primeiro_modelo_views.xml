@@ -173,7 +173,7 @@
                 <field name="meu_primeiro_campo_inteiro"/>
                 <field name="primeiro_campo_boolean"/>
                 <field name="start_date" />
-                <field name="end_date" />
+                <field name="end_date"  />
             </tree>
         </field>
     </record>
@@ -186,11 +186,34 @@
         <field name="context"> {'search_default_filter_has_madeira': 1} </field>
     </record>
 
+    <record id="group_meu_primeiro_modelo_acesso_menu_root" model="res.groups">
+        <field name="name">Acessar meu primeiro módulo</field>
+    </record>
+
     <menuitem
         id="meu_primeiro_modelo_menuitem_root"
         name="Meu Primeiro Modulo"
         action="meu_primeiro_modelo_action"
+        groups="meu_primeiro_modulo.group_meu_primeiro_modelo_acesso_menu_root"
         sequence="10"
     />
+
+
+    <record id="inherit_sale_order_inherit_meu_primeiro_modulo" model="ir.ui.view">
+        <field name="name">inherit_sale_order_inherit_meu_primeiro_modulo</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='payment_term_id']" position="attributes">
+                <attribute name="invisible" >1</attribute>
+            </xpath>
+
+            <!-- <xpath expr="//group[@name='order_details']/field[@name='payment_term_id']" position="attributes">
+                <field name="meu_primeiro_modelo_id" />
+                <field name="meu_primeiro_modelo_campo_integer_related" />
+            </xpath> -->
+        </field>
+    </record>
 
 </odoo>
